@@ -1,0 +1,15 @@
+<!-- Add this in the body -->
+<div id="mascot" style="position: fixed; bottom: 20px; right: 20px;">
+    <img src="mascot.png" alt="Mascot" width="50px">
+</div>
+
+<script>
+    // Mascot Animation
+    let mascot = document.getElementById("mascot");
+
+    setInterval(function() {
+        mascot.style.transition = "all 0.5s ease-in-out";
+        mascot.style.bottom = (Math.random() * 100) + "px";
+        mascot.style.right = (Math.random() * 100) + "px";
+    }, 2000);
+</script>
