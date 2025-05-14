@@ -1,0 +1,187 @@
+body {
+  display: flex;
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom right, #fdf6e3, #e0f7fa);
+}
+
+#sidebar {
+  width: 25%;
+  background-color: #ffebee;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  border-right: 5px dashed #f8bbd0;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  margin: 10px 0;
+}
+
+#sidebar a {
+  color: #6a1b9a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#main {
+  width: 75%;
+  padding: 30px;
+  background: linear-gradient(to top left, #fce4ec, #e1f5fe);
+}
+
+#mascot img {
+  width: 120px;
+  animation: float 4s ease-in-out infinite, rotate 20s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+button {
+  background-color: #81d4fa;
+  color: #003c8f;
+  font-weight: bold;
+  border: 2px solid #4fc3f7;
+  padding: 10px 15px;
+  margin: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #4fc3f7;
+  color: #fff;
+}
+
+textarea, label {
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  color: #444;
+}
+
+textarea {
+  width: 100%;
+  height: 70px;
+  border: 2px solid #ba68c8;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+#survey, #anxiety-scale, #quote-box, #rewards, #donate {
+  background-color: #ffffffaa;
+  padding: 15px;
+  margin: 20px 0;
+  border-left: 6px solid #b39ddb;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #6a1b9a;
+}
+
+p {
+  font-size: 18px;
+  color: #333;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You Are Not Alone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="sidebar">
+    <h2>Helpful Links</h2>
+    <ul>
+      <li><a href="#">Citations (APA 7)</a></li>
+      <li><a href="#">Books for Kids</a></li>
+      <li><a href="#">Send a Kind Message</a></li>
+      <li><a href="#">Find a Counselor</a></li>
+      <li><a href="#">Mental Health Hotline</a></li>
+    </ul>
+  </div>
+
+  <div id="main">
+    <div id="mascot">
+      <img src="butterfly.png" alt="Mascot Butterfly" />
+    </div>
+
+    <h1>Welcome to “You Are Not Alone”</h1>
+    <p>This is a safe and colorful place for kids to learn about mental health and how they can feel better every day!</p>
+
+    <div id="quote-box">
+      <h2>Daily Mental Health Quote</h2>
+      <p id="quote">“Your feelings are valid.”</p>
+      <button onclick="newQuote()">Get New Quote</button>
+    </div>
+
+    <div id="survey">
+      <h2>How Are You Feeling Today?</h2>
+      <label for="emoji-scale">Pick a number (1 = bad, 10 = great):</label>
+      <input type="range" id="emoji-scale" name="emoji-scale" min="1" max="10" />
+      <br />
+      <label for="comments">Anything you want to share?</label>
+      <textarea id="comments"></textarea>
+      <button onclick="submitSurvey()">Submit</button>
+    </div>
+
+    <div id="rewards">
+      <h2>Reward Center</h2>
+      <p>Keep checking in to unlock happy badges!</p>
+      <button onclick="earnReward()">Earn Today’s Reward</button>
+      <div id="reward-message"></div>
+    </div>
+
+    <div id="donate">
+      <h2>Support This Project</h2>
+      <p>If you're an organization, consider donating to help kids like you!</p>
+      <button onclick="alert('Thank you for supporting!')">Donate Now</button>
+    </div>
+  </div>
+
+  <script>
+    const quotes = [
+      "Fill your mind with mindfulness.",
+      "It's okay to reach out for help.",
+      "Don't be so hard on yourself.",
+      "You are enough.",
+      "Your feelings are valid.",
+      "Every day is a new day.",
+      "You’re not alone."
+    ];
+
+    function newQuote() {
+      const quote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").textContent = `"${quote}"`;
+    }
+
+    function submitSurvey() {
+      alert("Thanks for sharing how you feel today!");
+    }
+
+    function earnReward() {
+      const reward = "You earned a butterfly badge!";
+      document.getElementById("reward-message").textContent = reward;
+    }
+  </script>
+</body>
+</html>
