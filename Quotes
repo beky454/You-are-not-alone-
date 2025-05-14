@@ -1,0 +1,12 @@
+const quotes = [
+    "You are enough.",
+    "It’s okay to reach out for help.",
+    "Your feelings are valid.",
+    "Don’t be so hard on yourself.",
+    "Fill your mind with mindfulness."
+];
+
+document.querySelector("#quote-box button").addEventListener("click", () => {
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.querySelector("#quote-box p").textContent = quote;
+});
